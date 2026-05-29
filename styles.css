@@ -33,6 +33,16 @@ body {
     cursor: none; /* Hide default cursor for custom one */
 }
 
+/* Touch Devices (Phones, Tablets) - Remove Custom Cursor */
+@media (hover: none) and (pointer: coarse) {
+    body, a, button, input, .btn-primary, .social-links a, .nav-links a {
+        cursor: auto !important;
+    }
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+}
+
 /* Custom Cursor */
 .cursor-dot {
     width: 8px;
@@ -100,7 +110,7 @@ h1, h2, h3, h4, .logo {
     background-color: var(--text-primary);
     color: var(--bg-dark);
     text-decoration: none;
-    border-radius: 100px; /* Pill shape */
+    border-radius: 100px;
     font-weight: 600;
     font-size: 1rem;
     transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
@@ -158,6 +168,7 @@ h1, h2, h3, h4, .logo {
     color: var(--text-primary);
     text-decoration: none;
     letter-spacing: -1px;
+    z-index: 1002;
 }
 
 .logo span {
@@ -198,15 +209,18 @@ h1, h2, h3, h4, .logo {
     display: none;
     cursor: none;
     color: var(--text-primary);
+    z-index: 1002;
 }
 
 /* Hero Section */
 .hero {
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     overflow: hidden;
+    padding-top: 100px; /* Ensure content is below nav on mobile */
+    padding-bottom: 50px;
 }
 
 .hero-bg-image {
@@ -218,7 +232,7 @@ h1, h2, h3, h4, .logo {
     background-image: url('https://images.unsplash.com/photo-1613490908592-fd5e23f572f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
     background-size: cover;
     background-position: center;
-    transform: translateY(0); /* Parallax controlled by JS */
+    transform: translateY(0);
     z-index: -2;
 }
 
@@ -251,13 +265,13 @@ h1, h2, h3, h4, .logo {
 }
 
 .title {
-    font-size: clamp(4rem, 8vw, 7rem);
+    font-size: clamp(3rem, 7vw, 7rem);
     letter-spacing: -0.03em;
     margin-bottom: 30px;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.2rem);
     color: var(--text-secondary);
     max-width: 600px;
     margin-bottom: 50px;
@@ -267,12 +281,14 @@ h1, h2, h3, h4, .logo {
     display: flex;
     align-items: center;
     gap: 40px;
+    flex-wrap: wrap;
 }
 
 .stats {
     display: flex;
     align-items: center;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 .stat-item {
@@ -303,7 +319,7 @@ h1, h2, h3, h4, .logo {
 /* Scroll Indicator */
 .scroll-indicator {
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -337,7 +353,7 @@ h1, h2, h3, h4, .logo {
 
 /* Bento Grid */
 .section-header h2 {
-    font-size: clamp(2.5rem, 4vw, 4rem);
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 60px;
 }
 
@@ -480,7 +496,7 @@ h1, h2, h3, h4, .logo {
 }
 
 .contact-text h2 {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     margin-bottom: 20px;
 }
 
@@ -526,7 +542,6 @@ h1, h2, h3, h4, .logo {
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: 1.1rem;
-    cursor: none;
 }
 
 .input-group input:focus {
@@ -578,7 +593,6 @@ h1, h2, h3, h4, .logo {
     justify-content: center;
     color: var(--text-primary);
     transition: all 0.3s ease;
-    cursor: none;
 }
 
 .social-links a:hover {
@@ -602,7 +616,6 @@ h1, h2, h3, h4, .logo {
 .footer-legal a {
     color: var(--text-secondary);
     text-decoration: none;
-    cursor: none;
 }
 
 .footer-legal a:hover {
@@ -632,8 +645,20 @@ h1, h2, h3, h4, .logo {
     transform: translateY(0);
 }
 
-/* Responsive */
+/* =====================================================================
+   Responsive Design
+   ===================================================================== */
+@media (max-width: 1200px) {
+    .bento-grid {
+        grid-auto-rows: 300px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
+    
     .bento-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -642,25 +667,69 @@ h1, h2, h3, h4, .logo {
         grid-template-columns: 1fr;
         padding: 40px;
     }
+    
+    .marquee-item {
+        width: 400px;
+        height: 280px;
+    }
 }
 
 @media (max-width: 768px) {
-    .nav-links, .nav-container > .btn-primary {
+    .container {
+        padding: 0 20px;
+    }
+
+    .section-padding {
+        padding: 80px 0;
+    }
+    
+    .nav-container > .btn-primary {
         display: none;
     }
     
     .hamburger {
         display: block;
     }
-    
-    .title {
-        font-size: 3.5rem;
+
+    /* Fullscreen Mobile Menu */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: var(--bg-dark);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 1001;
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
     }
     
     .hero-cta {
         flex-direction: column;
         align-items: flex-start;
-        gap: 30px;
+        gap: 20px;
+    }
+    
+    .stats {
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
     }
     
     .bento-grid {
@@ -671,15 +740,46 @@ h1, h2, h3, h4, .logo {
     .bento-large, .bento-wide {
         grid-column: span 1;
     }
+
+    .bento-large {
+        grid-row: span 1;
+    }
+
+    .marquee-item {
+        width: 300px;
+        height: 200px;
+    }
+
+    .contact-wrapper {
+        padding: 30px 20px;
+    }
     
     .footer-top {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px;
     }
     
     .footer-bottom {
         flex-direction: column;
-        gap: 20px;
+        gap: 15px;
         text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .bento-grid {
+        grid-auto-rows: 250px;
+    }
+
+    .bento-content {
+        padding: 15px;
+    }
+
+    .bento-item h3 {
+        font-size: 1.25rem;
+    }
+    
+    .contact-wrapper {
+        padding: 20px 15px;
     }
 }
