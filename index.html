@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aura Residences - Perumahan eksklusif dengan desain modern dan fasilitas premium di pusat kota.">
+    <title>Aura Residences | Premium Modern Living</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Aura.</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#features">Fasilitas</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact" class="btn-outline">Hubungi Kami</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in-up">
+            <h2>Kemewahan dalam <span>Kesederhanaan</span></h2>
+            <p>Temukan rumah impian Anda dengan desain kontemporer dan ruang terbuka hijau yang menenangkan.</p>
+            <a href="#contact" class="btn-primary">Jadwalkan Kunjungan</a>
+        </div>
+    </header>
+
+    <section id="features" class="features section-padding">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h3>Keunggulan Kami</h3>
+                <h2>Mengapa Memilih Aura Residences?</h2>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="feature-icon">🌿</div>
+                    <h4>Eco-Friendly Design</h4>
+                    <p>Konsep rumah hijau dengan sirkulasi udara maksimal dan pencahayaan alami.</p>
+                </div>
+                <div class="feature-card fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="feature-icon">🔒</div>
+                    <h4>Keamanan 24 Jam</h4>
+                    <p>Sistem keamanan terpadu dengan smart home technology di setiap unit.</p>
+                </div>
+                <div class="feature-card fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="feature-icon">📍</div>
+                    <h4>Lokasi Strategis</h4>
+                    <p>Akses mudah ke pusat perbelanjaan, sekolah internasional, dan rumah sakit.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery section-padding">
+        <div class="container">
+            <div class="section-title fade-in-up">
+                <h3>Koleksi Desain</h3>
+                <h2>Galeri Interior & Eksterior</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in-up" style="transition-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Eksterior Rumah">
+                    <div class="gallery-overlay">
+                        <span>Tipe 120 - Eksterior</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Interior Ruang Tamu">
+                    <div class="gallery-overlay">
+                        <span>Ruang Keluarga</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up" style="transition-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Kamar Tidur">
+                    <div class="gallery-overlay">
+                        <span>Master Bedroom</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in-up" style="transition-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dapur">
+                    <div class="gallery-overlay">
+                        <span>Modern Kitchen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="contact-card fade-in-up">
+                <div class="contact-info">
+                    <h2>Mulai Perjalanan Anda</h2>
+                    <p>Tinggalkan pesan, dan tim konsultan properti kami akan segera menghubungi Anda untuk memberikan penawaran terbaik.</p>
+                    <ul class="info-list">
+                        <li>📍 Jl. Mawar Indah No. 88, Jakarta</li>
+                        <li>📞 +62 812 3456 7890</li>
+                        <li>✉️ hello@aura-residences.com</li>
+                    </ul>
+                </div>
+                <form class="contact-form" onsubmit="event.preventDefault(); alert('Pesan berhasil terkirim!');">
+                    <div class="form-group">
+                        <input type="text" placeholder="Nama Lengkap" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Nomor Telepon" required>
+                    </div>
+                    <button type="submit" class="btn-primary w-100">Kirim Permintaan</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h2>Aura.</h2>
+                <p>Menciptakan hunian impian untuk gaya hidup modern.</p>
+            </div>
+            <p class="copyright">&copy; 2026 Aura Residences. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
